@@ -1,0 +1,14 @@
+{
+  "name": "@jrg/simple-rollup-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "rollup": "rollup -c build/rollup.config.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "latest"
+  }
+}
