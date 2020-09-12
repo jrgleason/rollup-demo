@@ -1,0 +1,12 @@
+<html>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/require1k@2.0.0/require1k.min.js"></script>
+<script>
+
+    R(function (require, module, exports) {
+        const {SimpleTest} = require("./target/ng-demo.cjs");
+        new SimpleTest("commonjs");
+    });
+</script>
+</body>
+</html>

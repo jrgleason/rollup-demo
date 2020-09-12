@@ -11,7 +11,11 @@ export default {
             name:"jg-simple"
         },
         {
-            file: "./target/ng-demo.js",
+            file: "./target/ng-demo.amd.js",
+            format: "amd"
+        },
+        {
+            file: "./target/ng-demo.cjs.js",
             format: "cjs"
         }
     ]

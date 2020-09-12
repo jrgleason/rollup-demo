@@ -2,8 +2,8 @@
 <body>
 <script src="https://requirejs.org/docs/release/2.3.6/comments/require.js"></script>
 <script>
-    require(["./target/ng-demo.js"], (dep)=>{
-        new dep.SimpleTest("ESM");
+    require(["./target/ng-demo.amd.js"], (dep)=>{
+        new dep.SimpleTest("AMD");
     });
 </script>
 </body>
