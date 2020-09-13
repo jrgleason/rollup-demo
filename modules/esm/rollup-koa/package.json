@@ -4,20 +4,26 @@
   "description": "Simple demo of a Javascript ESM based application running on Koa",
   "main": "server.mjs",
   "scripts": {
+    "start": "node --experimental-modules server.mjs",
+    "rollup:watch": "rollup -w -c build/rollup.config.mjs",
     "rollup": "rollup -c build/rollup.config.mjs"
   },
   "author": "Jackie Gleason",
   "license": "ISC",
   "devDependencies": {
-    "@material/mwc-button": "latest",
-    "@rollup/plugin-commonjs": "latest",
-    "@rollup/plugin-node-resolve": "latest",
-    "rollup": "latest",
-    "rollup-plugin-terser": "latest",
     "@jrg-material/core": "latest",
+    "@material/mwc-button": "latest",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "latest",
+    "mustache": "latest",
+    "rollup": "latest",
+    "rollup-plugin-html": "latest",
+    "rollup-plugin-terser": "latest",
     "tslib": "latest"
   },
   "dependencies": {
-    "koa": "latest"
+    "@xstate/fsm": "^1.5.1",
+    "koa": "latest",
+    "koa-static": "^5.0.0"
   }
 }

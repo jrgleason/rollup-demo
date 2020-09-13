@@ -1,5 +1,7 @@
 import nodeResolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
+import html from "rollup-plugin-html";
+import commonjs from '@rollup/plugin-commonjs';
 export default {
     input: "./ui/index.mjs",
     output: [
@@ -18,6 +20,11 @@ export default {
         }
     ],
     plugins: [
-        nodeResolve()
+        html({
+            include:"ui/**/*.html"
+        }),
+        commonjs(),
+        nodeResolve(),
+
     ]
 }
