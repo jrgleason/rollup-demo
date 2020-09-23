@@ -11,19 +11,22 @@
   "author": "Jackie Gleason",
   "license": "ISC",
   "devDependencies": {
+    "@xstate/fsm": "latest",
     "@jrg-material/core": "latest",
     "@material/mwc-button": "latest",
-    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-commonjs": "latest",
     "@rollup/plugin-node-resolve": "latest",
     "mustache": "latest",
     "rollup": "latest",
     "rollup-plugin-html": "latest",
     "rollup-plugin-terser": "latest",
-    "tslib": "latest"
+    "tslib": "latest",
+    "mariadb": "latest",
+    "mysql": "github:mysqljs/mysql"
   },
   "dependencies": {
-    "@xstate/fsm": "^1.5.1",
     "koa": "latest",
-    "koa-static": "^5.0.0"
+    "koa-mount": "latest",
+    "koa-static": "latest"
   }
 }
