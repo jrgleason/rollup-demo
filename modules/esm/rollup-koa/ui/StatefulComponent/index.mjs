@@ -1,5 +1,4 @@
 import {BASIC_TOGGLE, StatefulElement} from "../StatefulElement";
-import {CREATE_ELEMENT} from "@jrg-material/core";
 import template from "./component.html"
 
 export class StatefulComponent extends StatefulElement{

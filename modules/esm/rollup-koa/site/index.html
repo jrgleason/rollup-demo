@@ -1,12 +1,28 @@
 <html>
 <head>
-
+<style>
+    html, body{
+        margin: 0;
+    }
+    .mdc-drawer-app-content{
+        margin: 0 8px;
+    }
+</style>
 </head>
 <body>
-<mwc-button label="Hello World"></mwc-button>
-<jrg-simple></jrg-simple>
-<jrg-stateful></jrg-stateful>
-<jrg-shadow></jrg-shadow>
+<mwc-top-app-bar-fixed centerTitle>
+    <div slot="title">
+        <strong>THE</strong>
+        <span>&nbsp;</span>
+        <span>Jackie R. Gleason</span>
+    </div>
+</mwc-top-app-bar-fixed>
+<!--<jrg-simple></jrg-simple>-->
+<!--<jrg-stateful></jrg-stateful>-->
+<!--<jrg-shadow></jrg-shadow>-->
+<!--<jrg-person></jrg-person>-->
+<jrg-sidebar></jrg-sidebar>
+
 <script src="/assets/ng-demo.esm.mjs" type="module"></script>
 </body>
 </html>
