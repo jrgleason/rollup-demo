@@ -1,5 +1,6 @@
 import marked from "marked";
 import {ShadowElement} from "../ShadowElement.mjs";
+import style from "./style.css"
 export class MarkdownComponent extends ShadowElement{
     constructor() {
         super();
@@ -9,19 +10,18 @@ export class MarkdownComponent extends ShadowElement{
         this.render();
     }
     get remoteUrl(){
-        return this.githubUrl+this.url;
+        return this.getAttribute("server")+
+            this.getAttribute("url");
     }
     getMarkdown(){
         if(this.url) return new Promise(this.handleResponse.bind(this))
     }
     handleResponse(res){
         // TODO: Handle non-success
-        const listener = function(){
-            console.log(`Response text is ${this.responseText}`);
-            res(this.responseText);
-        }
         let oReq = new XMLHttpRequest();
-        oReq.addEventListener("load", listener);
+        oReq.addEventListener("load", function(){
+            res(this.responseText);
+        });
         oReq.open("GET", this.remoteUrl);
         oReq.send();
     }
@@ -52,7 +52,6 @@ export class MarkdownComponent extends ShadowElement{
         this.parent.url = this.href.replace(window.location.href.toLowerCase(),'/');
         this.parent.setAttribute("url", this.parent.url);
         this.parent.render();
-        console.log(`Getting ${this.href}`);
     }
 
     postRender(){
@@ -60,17 +59,23 @@ export class MarkdownComponent extends ShadowElement{
             // It exists so lets remove it
             this.shadowRoot.removeChild(this.wrapper);
         }
-        this.wrapper = document.createElement("div");
+        this.wrapper = document.createElement("article");
         this.wrapper.style.margin = "0 8px";
+        this.wrapper.style.display = "flex";
+        this.wrapper.style.flexDirection = "column";
+        this.wrapper.className = "markdown-body";
         return this.getMarkdown().then((md)=>{
             this.wrapper.innerHTML = marked(md);
-            const links = this.wrapLinks();
-            const refs = links.map((element)=> element?.href);
-            refs.forEach((url)=>{
-                console.log(`The url is ${url}`);
-            })
-            console.log(`There were ${links.length} links`);
+            this.wrapLinks();
+            const sty = document.createElement("link");
+            sty.setAttribute("rel", "stylesheet");
+            sty.setAttribute('href',"/assets/github-markdown.css");
+            const sty2 = document.createElement("style");
+            sty2.innerHTML = style;
+            this.shadowRoot.innerHTML = null;
             this.shadowRoot.append(this.wrapper);
+            this.shadowRoot.append(sty);
+            this.shadowRoot.append(sty2);
         });
     }
 }

@@ -1,0 +1,24 @@
+/*TODO: Need mediaquery for small screens it goes down to 56*/
+.jrg-side-bar{
+    display:flex;
+    flex-direction: column;
+    background-color: #000000;
+    height: calc(100% - 64px);
+    --mdc-theme-text-primary-on-background: white;
+}
+.jrg-content{
+    overflow: auto;
+    background-color:#666666;
+    height: calc(100% - 64px);
+    padding: 0 16px;
+}
+.jrg-mardown-content{
+    height:100%;
+    width:100%;
+}
+.mdc-drawer-app-content{
+    overflow: hidden;
+}
+.mdc-drawer{
+    border: 0;
+}

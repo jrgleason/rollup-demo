@@ -1,11 +1,17 @@
-<mwc-drawer>
-    <div>
-        <p>Drawer Content!</p>
-    </div>
-    <div slot="appContent">
+<jrg-drawer>
+    <mwc-list class="drawer-content jrg-side-bar">
+        {{#pages}}
+        <mwc-list-item
+                server="{{server}}"
+                class="drawer-item"
+                url="{{url}}" >{{displayName}}</mwc-list-item>
+        {{/pages}}
+    </mwc-list>
+    <div slot="appContent" class="jrg-content">
         <jrg-markdown
+                class="jrg-mardown-content"
                 server="https://raw.githubusercontent.com/jrgleason/blog/master"
                 url="/README.md"
         ></jrg-markdown>
     </div>
-</mwc-drawer>
+</jrg-drawer>
