@@ -12,15 +12,15 @@ const stringPlugin = rollupString.string({
 });
 
 export default {
-    input: "./ui/index.mjs",
+    input: "./index.mjs",
     output: [
         {
-            file: "./target/ng-demo.esm.mjs",
+            file: "./target/jtg-ui.esm.mjs",
             format: "esm",
             sourcemap: "inline"
         },
         {
-            file: "./target/ng-demo.min.esm.mjs",
+            file: "./target/jrg-ui.min.esm.mjs",
             format: "esm",
             sourcemap: false,
             plugins:[
@@ -30,7 +30,7 @@ export default {
     ],
     plugins: [
         html({
-            include:"ui/**/*.html"
+            include:"**/*.html"
         }),
         commonjs(),
         nodeResolve(),

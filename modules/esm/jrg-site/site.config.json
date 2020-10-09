@@ -1,0 +1,10 @@
+{
+  "title": "Welcome to Jackie R Gleason.com",
+  "pages": [
+    {
+      "displayName": "Introduction",
+      "server": "https://raw.githubusercontent.com/jrgleason/blog/master",
+      "url": "/README.md"
+    }
+  ]
+}

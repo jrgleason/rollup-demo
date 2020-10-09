@@ -1,0 +1,40 @@
+<html>
+<head>
+    <link href="//fonts.googleapis.com/css2?family=Quantico:ital,wght@1,700&display=swap" rel="stylesheet" />
+    <link href="//unpkg.com/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            --mdc-theme-primary: #000000;
+            --mdc-theme-on-primary: #bb0000;
+            --mdc-theme--secondary: #bb0000;
+            --mdc-theme-on-secondary: white;
+            overflow: hidden;
+        }
+        /*i.fab {*/
+        /*    color:white;*/
+        /*}*/
+        .jrg-wrapper-main{
+            overflow: auto;
+            height:100%;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<!--<i class="fab fa-linkedin" slot="actionItems">&nbsp;</i>-->
+<jrg-top-bar-fixed></jrg-top-bar-fixed>
+<!--<jrg-simple>#bb0000</jrg-simple>-->
+<!--<jrg-stateful>#666666</jrg-stateful>-->
+<!--<jrg-shadow></jrg-shadow>-->
+<!--<jrg-person></jrg-person>-->
+<div class="jrg-wrapper-main">
+    <jrg-splash></jrg-splash>
+    <jrg-sidebar url="/site.config.json"></jrg-sidebar>
+</div>
+
+
+<script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>
+</body>
+</html>

@@ -8,14 +8,14 @@ function CREATE_ELEMENT(name, object, params) {
     customElements.get(name) ||
     customElements.define(name, object, params);
 }
-import {StatefulComponent} from "./StatefulComponent/index.mjs";
-import {PersonComponent} from "./PersonComponent/index.mjs";
-import {BusParticipant} from "./Bus.mjs";
-import {MarkdownComponent} from "./MarkdownComponent/index.mjs";
-import {SidebarComponent} from "./SidebarComponent/index.mjs";
-import {TopBarFixed} from "./TopBarFixedComponent/index.mjs";
-import {SplashComponent} from "./SplashComponent/index.mjs";
-import {MyDrawer} from "./MyDrawerComponent/index.mjs";
+import {StatefulComponent} from "./src/StatefulComponent/index.mjs";
+import {PersonComponent} from "./src/PersonComponent/index.mjs";
+import {BusParticipant} from "./src/Bus.mjs";
+import {MarkdownComponent} from "./src/MarkdownComponent/index.mjs";
+import {SidebarComponent} from "./src/SidebarComponent/index.mjs";
+import {TopBarFixed} from "./src/TopBarFixedComponent/index.mjs";
+import {SplashComponent} from "./src/SplashComponent/index.mjs";
+import {MyDrawer} from "./src/MyDrawerComponent/index.mjs";
 
 
 window.person = new BusParticipant();
