@@ -1,0 +1,29 @@
+.jrg-header-title{
+    font-family: 'Quantico', sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    text-shadow: -1px 1px 2px #666666,
+    1px 1px 2px #666666,
+    1px -1px 0 #666666,
+    -1px -1px 0 #666666;
+    letter-spacing: 4px;
+}
+@media screen and (max-width: 599px) {
+    .jrg-header-title{
+        font-size: medium;
+    }
+}
+.action-item{
+    font-family: 'Font Awesome 5 Brands', sans-serif;
+}
+i {
+    color:white;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 0 6px;
+    cursor: pointer;
+}
+.jrg-resume-button{
+    --mdc-theme-primary: white;
+    --mdc-button-raised-box-shadow-hover: #666666;
+}

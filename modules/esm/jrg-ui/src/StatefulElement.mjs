@@ -10,22 +10,27 @@ const BASIC_TOGGLE = {
         active: { on: { TOGGLE: "inactive" } }
     }
 }
+
 class StatefulElement extends HTMLElement{
     constructor(config, template) {
         super();
         this.template = template;
-        this.machine = createMachine(config);
-        this.service = interpret(this.machine);
-        this.service.start();
-        this.service.subscribe(this.onChange.bind(this));
-        this.state = this.service.state
+        if(this.config){
+            this.machine = createMachine(config);
+            this.service = interpret(this.machine);
+            this.service.start();
+            this.service.subscribe(this.onChange.bind(this));
+            this.state = this.service.state || {}
+        } else{
+            this.onChange();
+        }
     }
     onChange(state){
-        this.state = state;
+        this.state = state || {};
         this.render();
     }
     send(value){
-        this.service.send(value);
+        if(this.config) this.service.send(value);
     }
     render(){
         if(!this.template) throw new Error("Cannot render because there is no template");

@@ -16,7 +16,9 @@ export class Application{
     }
     static GET_ASSETS(){
         const assets = new Koa();
-        assets.use(serve('./target'))
+        assets.use(serve('./target'));
+        assets.use(serve('./node_modules/@jrg/github-markdown-css'));
+        assets.use(serve("./node_modules/@fortawesome/fontawesome-free"))
         return assets;
     }
     getServices(){

@@ -5,28 +5,19 @@
   "main": "server.mjs",
   "scripts": {
     "start": "node --experimental-modules server.mjs",
-    "rollup:watch": "rollup -w -c build/rollup.config.mjs",
-    "rollup": "rollup -c build/rollup.config.mjs"
+    "rollup:watch": "rollup -w -c ../jrg-ui/build/rollup.config.mjs",
+    "rollup": "rollup -c ../jrg-ui/build/rollup.config.mjs"
   },
   "author": "Jackie Gleason",
   "license": "ISC",
-  "devDependencies": {
-    "@xstate/fsm": "latest",
-    "@jrg-material/core": "latest",
-    "@material/mwc-button": "latest",
-    "@rollup/plugin-commonjs": "latest",
-    "@rollup/plugin-node-resolve": "latest",
-    "mustache": "latest",
-    "rollup": "latest",
-    "rollup-plugin-html": "latest",
-    "rollup-plugin-terser": "latest",
-    "tslib": "latest",
-    "mariadb": "latest",
-    "mysql": "github:mysqljs/mysql"
-  },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "latest",
+    "@jrg/github-markdown-css": "latest",
     "koa": "latest",
     "koa-mount": "latest",
     "koa-static": "latest"
+  },
+  "devDependencies": {
+    "mysql": "^2.18.1"
   }
 }
