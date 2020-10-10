@@ -8,6 +8,11 @@
     -1px -1px 0 #666666;
     letter-spacing: 4px;
 }
+@media screen and (max-width: 599px) {
+    .jrg-header-title{
+        font-size: medium;
+    }
+}
 .action-item{
     font-family: 'Font Awesome 5 Brands', sans-serif;
 }
