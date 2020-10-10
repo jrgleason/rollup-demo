@@ -5,6 +5,11 @@
       "displayName": "Introduction",
       "server": "https://raw.githubusercontent.com/jrgleason/blog/master",
       "url": "/README.md"
+    },
+    {
+      "displayName": "Simple NodeJS Application",
+      "server": "https://raw.githubusercontent.com/jrgleason/blog/master",
+      "url": "/posts/1.0/1.0-GettingStarted.md"
     }
   ]
 }
