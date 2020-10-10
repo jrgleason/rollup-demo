@@ -15,7 +15,7 @@ export default {
     input: "./index.mjs",
     output: [
         {
-            file: "./target/jtg-ui.esm.mjs",
+            file: "./target/jrg-ui.esm.mjs",
             format: "esm",
             sourcemap: "inline"
         },

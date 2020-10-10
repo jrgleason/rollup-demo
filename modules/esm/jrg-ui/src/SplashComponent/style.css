@@ -8,7 +8,11 @@
     display: flex;
     flex-direction: column;
     color: white;
-
+}
+@media screen and (max-width: 599px) {
+    .jrg-splash-page {
+        height: calc(100% - 56px);
+    }
 }
 .jrg-text{
     display: flex;

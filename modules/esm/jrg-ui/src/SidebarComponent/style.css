@@ -6,11 +6,17 @@
     height: calc(100% - 64px);
     --mdc-theme-text-primary-on-background: white;
 }
+
 .jrg-content{
     overflow: auto;
     background-color:#666666;
     height: calc(100% - 64px);
     padding: 0 16px;
+}
+@media screen and (max-width: 599px) {
+    .jrg-side-bar, .jrg-content {
+        height: calc(100% - 56px);
+    }
 }
 .jrg-mardown-content{
     height:100%;
