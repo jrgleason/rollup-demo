@@ -15,7 +15,8 @@
     height: 100%;
 }
 @media screen and (max-width: 599px) {
-    .jrg-side-bar, .jrg-content {
+    :root {
+        --mdc-drawer-width: 10%;
     }
 }
 .jrg-mardown-content{

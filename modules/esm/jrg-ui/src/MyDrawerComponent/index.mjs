@@ -8,6 +8,11 @@ export class MyDrawer extends Drawer{
             .mdc-drawer{
               border:0;!important;
             }
+            @media screen and (max-width: 599px) {
+                :root {
+                    --mdc-drawer-width: 10%;
+                }
+            }
             `
         ]
     }
