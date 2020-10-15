@@ -1,6 +1,6 @@
 {
   "name": "@jrg/ui",
-  "version": "0.0.7",
+  "version": "0.0.15",
   "description": "UI Components for my website",
   "main": "target/jrg-ui.min.esm.mjs",
   "scripts": {

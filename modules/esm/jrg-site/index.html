@@ -17,8 +17,14 @@
         /*}*/
         .jrg-wrapper-main{
             overflow: auto;
-            height:100%;
+            height: calc(100% - 64px);
             width:100%;
+        }
+        @media screen and (max-width: 599px) {
+            .jrg-wrapper-main {
+                height: calc(100% - 56px);
+                background-size: auto 100%;
+            }
         }
     </style>
     <meta name="viewport" content="width=device-width,initial-scale=1" >

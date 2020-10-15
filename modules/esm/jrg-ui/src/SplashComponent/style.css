@@ -1,17 +1,19 @@
 .jrg-splash-page{
-    height: calc(100% - 64px);
     width: 100%;
     background-image: url("https://images.squarespace-cdn.com/content/v1/59909c3a1e5b6cfb68d6df0f/1502787631066-10F68923N868OTVWXKC4/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/DSC07574.jpg?format=1500w");
     background-size: 100% auto;
     background-attachment: fixed;
     background-position: center;
+    background-repeat: no-repeat;
+    background-color: #9E8F6E;
     display: flex;
     flex-direction: column;
     color: white;
+    height: 100%;
 }
 @media screen and (max-width: 599px) {
     .jrg-splash-page {
-        height: calc(100% - 56px);
+        background-size: auto 100%;
     }
 }
 .jrg-text{
