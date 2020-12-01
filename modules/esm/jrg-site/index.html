@@ -1,8 +1,11 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link href="//fonts.googleapis.com/css2?family=Quantico:ital,wght@1,700&display=swap" rel="stylesheet" />
-    <link href="//unpkg.com/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <!--    <link href="//fonts.googleapis.com/css2?family=Quantico:ital,wght@1,700&display=swap" rel="stylesheet" />-->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.css">
     <style>
         html, body {
             margin: 0;
@@ -14,14 +17,16 @@
             height: 100%;
             width: 100%;
         }
+
         /*i.fab {*/
         /*    color:white;*/
         /*}*/
-        .jrg-wrapper-main{
+        .jrg-wrapper-main {
             overflow: auto;
             height: calc(100% - 64px);
             width: 100%;
         }
+
         @media screen and (max-width: 599px) {
             .jrg-wrapper-main {
                 height: calc(100% - 56px);
@@ -29,21 +34,42 @@
             }
         }
     </style>
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no,minimal-ui" >
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no,minimal-ui">
 </head>
 <body>
-<!--<i class="fab fa-linkedin" slot="actionItems">&nbsp;</i>-->
-<jrg-top-bar-fixed></jrg-top-bar-fixed>
-<!--<jrg-simple>#bb0000</jrg-simple>-->
-<!--<jrg-stateful>#666666</jrg-stateful>-->
-<!--<jrg-shadow></jrg-shadow>-->
-<!--<jrg-person></jrg-person>-->
-<div class="jrg-wrapper-main">
-    <jrg-splash></jrg-splash>
-    <jrg-sidebar url="/site.config.json"></jrg-sidebar>
-</div>
+    <jrg-top-bar-fixed></jrg-top-bar-fixed>
+    <div class="jrg-wrapper-main" data-scroll-section>
+        <jrg-splash data-scroll
+                    data-scroll-id="splash"
+                    data-scroll-call="splash"
+        ></jrg-splash>
+        <jrg-sidebar data-scroll
+                     data-scroll-id="blog"
+                     data-scroll-call="sidebar"
+                     data-scroll-speed="2"
+                     url="./site.config.json"
+        ></jrg-sidebar>
+        <!--    <jrg-sidebar url="http://localhost:4001/site.config.json"></jrg-sidebar>-->
+    </div>
 
 
-<script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>
+    <!--<script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>-->
+    <script src="http://localhost:4001/jrg-ui.min.esm.mjs" type="module"></script>
+    <script src="https://unpkg.com/locomotive-scroll"></script>
+    <script type="module">
+        // import {LocomotiveScroll} from "https://unpkg.com/locomotive-scroll";
+        console.log("Let us try this");
+        const scroll = new window.LocomotiveScroll();
+        scroll.on("call", args=>{
+            console.log(`Called with ${JSON.stringify(args)}`)
+        });
+        scroll.on('scroll', (args) => {
+            if (typeof args.currentElements['splash'] === 'object') {
+                console.log("The call was fired");
+            } else {
+                console.log("Somewhere else");
+            }
+        });
+    </script>
 </body>
 </html>

@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@jrg/rollup-sass-shadow": "latest",
+    "@koa/cors": "^3.1.0",
     "@material/mwc-button": "latest",
     "@material/mwc-drawer": "latest",
     "@material/mwc-icon": "latest",
@@ -20,16 +21,22 @@
     "@rollup/plugin-commonjs": "latest",
     "@rollup/plugin-node-resolve": "latest",
     "@xstate/fsm": "latest",
+    "autoprefixer": "^9.8.6",
+    "koa": "latest",
+    "koa-static": "latest",
     "lit-element": "latest",
     "mariadb": "latest",
     "marked": "latest",
     "mustache": "latest",
     "mysql": "latest",
+    "postcss": "^7.0.35",
     "rollup": "latest",
     "rollup-plugin-html": "latest",
     "rollup-plugin-string": "latest",
     "rollup-plugin-terser": "latest",
     "rxjs": "latest",
-    "tslib": "latest"
-  }
+    "tslib": "latest",
+    "locomotive-scroll": "latest"
+  },
+  "dependencies": {}
 }

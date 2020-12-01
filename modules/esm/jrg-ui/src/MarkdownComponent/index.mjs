@@ -69,7 +69,7 @@ export class MarkdownComponent extends ShadowElement{
             this.wrapLinks();
             const sty = document.createElement("link");
             sty.setAttribute("rel", "stylesheet");
-            sty.setAttribute('href',"//unpkg.com/@jrg/github-markdown-css/github-markdown.css");
+            sty.setAttribute('href',"https://unpkg.com/@jrg/github-markdown-css/github-markdown.css");
             const sty2 = document.createElement("style");
             sty2.innerHTML = style;
             this.shadowRoot.innerHTML = null;

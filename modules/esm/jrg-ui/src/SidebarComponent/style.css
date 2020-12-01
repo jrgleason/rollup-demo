@@ -1,4 +1,3 @@
-/*TODO: Need mediaquery for small screens it goes down to 56*/
 .jrg-side-bar{
     display:flex;
     flex-direction: column;

@@ -1,4 +1,4 @@
-import {StatefulElement} from "./StatefulElement";
+import "tailwindcss/tailwind.css"
 import mustache from "mustache";
 import style from "./SplashComponent/style.css";
 

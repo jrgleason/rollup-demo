@@ -20,6 +20,7 @@ class ConfigurationService{
 export class SidebarComponent extends ShadowElement {
     constructor() {
         super(template);
+        this.open = true;
         // TODO: add default config
         this.service = new ConfigurationService(this.getAttribute("url"));
         this.service.getConfiguration().then((config)=>{
