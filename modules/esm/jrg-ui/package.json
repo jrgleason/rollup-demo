@@ -38,5 +38,7 @@
     "tslib": "latest",
     "locomotive-scroll": "latest"
   },
-  "dependencies": {}
+  "dependencies": {
+    "modularscroll": "^1.0.7"
+  }
 }

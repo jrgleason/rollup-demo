@@ -53,23 +53,22 @@
     </div>
 
 
-    <script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>
-<!--    <script src="http://localhost:4001/jrg-ui.min.esm.mjs" type="module"></script>-->
-    <script src="//unpkg.com/locomotive-scroll"></script>
+<!--    <script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>-->
+    <script src="http://localhost:4001/jrg-ui.min.esm.mjs" type="module"></script>
+<!--    <script src="//unpkg.com/locomotive-scroll"></script>-->
     <script type="module">
-        // import {LocomotiveScroll} from "https://unpkg.com/locomotive-scroll";
-        console.log("Let us try this");
-        const scroll = new window.LocomotiveScroll();
+        import modularScroll from "https://unpkg.com/modularscroll@1.0.7/dist/main.esm.js";
+        const scroll = new modularScroll();
         scroll.on("call", args=>{
             console.log(`Called with ${JSON.stringify(args)}`)
         });
-        scroll.on('scroll', (args) => {
-            if (typeof args.currentElements['splash'] === 'object') {
-                console.log("The call was fired");
-            } else {
-                console.log("Somewhere else");
-            }
-        });
+        // scroll.on('scroll', (args) => {
+        //     if (typeof args.currentElements['splash'] === 'object') {
+        //         console.log("The call was fired");
+        //     } else {
+        //         console.log("Somewhere else");
+        //     }
+        // });
     </script>
 </body>
 </html>
