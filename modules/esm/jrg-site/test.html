@@ -8,8 +8,13 @@
                 margin: 0;
                 overflow: hidden;
             }
+            #header{
+                height:64px;
+                width: 100%;
+                background-color: #bb0000;
+            }
             #wrapper{
-                height:100%;
+                height:calc( 100% - 64px );
                 width:100%;
                 overflow: auto;
             }
@@ -20,6 +25,7 @@
         </style>
     </head>
     <body>
+        <div id="header"></div>
         <div id="wrapper">
             <div id="test1"
                  class="scroll-item">Simple Test 1</div>
