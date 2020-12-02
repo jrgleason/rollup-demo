@@ -22,21 +22,26 @@
     <body>
         <div id="wrapper">
             <div id="test1"
-                 class="scroll-item"
-                 data-scroll
-                 data-scroll-call="Test1">Simple Test 1</div>
+                 class="scroll-item">Simple Test 1</div>
             <div id="test2"
-                 class="scroll-item"
-                 data-scroll
-                 data-scroll-call="Test2">Simple Test 2</div>
+                 class="scroll-item">Simple Test 2</div>
         </div>
         <script type="module">
-            import modularScroll from "https://unpkg.com/modularscroll@1.0.7/dist/main.esm.js";
-            const scroll = new modularScroll();
-            scroll.on("call", args=>{
-                console.log(`Called with ${JSON.stringify(args)}`)
-            });
+            const body = document.querySelector("#wrapper");
+            const handleScroll = function(info){
+                const top = body.scrollTop;
+                const items = body.getElementsByClassName("scroll-item");
+                for(let i = 0; i < items.length; i++){
+                    const item = items[i];
+                    const bottom = item.offsetTop + item.offsetHeight;
+                    if(top >= item.offsetTop && top < bottom) {
+                        item.classList.add("selected");
+                    } else{
+                        item.classList.remove("selected");
+                    }
+                }
+            }
+            body.addEventListener("wheel",handleScroll);
         </script>
     </body>
-
 </html>

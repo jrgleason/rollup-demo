@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
     <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.css">
     <style>
         html, body {
             margin: 0;
@@ -38,37 +37,37 @@
 </head>
 <body>
     <jrg-top-bar-fixed></jrg-top-bar-fixed>
-    <div class="jrg-wrapper-main" data-scroll-section>
-        <jrg-splash data-scroll
-                    data-scroll-id="splash"
-                    data-scroll-call="splash"
-        ></jrg-splash>
-        <jrg-sidebar data-scroll
-                     data-scroll-id="blog"
-                     data-scroll-call="sidebar"
-                     data-scroll-speed="2"
-                     url="./site.config.json"
-        ></jrg-sidebar>
-        <!--    <jrg-sidebar url="http://localhost:4001/site.config.json"></jrg-sidebar>-->
+    <div class="jrg-wrapper-main" >
+        <jrg-splash class="scroll-area"></jrg-splash>
+        <jrg-sidebar class="scroll-area" url="./site.config.json"></jrg-sidebar>
     </div>
 
 
 <!--    <script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>-->
     <script src="http://localhost:4001/jrg-ui.min.esm.mjs" type="module"></script>
-<!--    <script src="//unpkg.com/locomotive-scroll"></script>-->
     <script type="module">
-        import modularScroll from "https://unpkg.com/modularscroll@1.0.7/dist/main.esm.js";
-        const scroll = new modularScroll();
-        scroll.on("call", args=>{
-            console.log(`Called with ${JSON.stringify(args)}`)
-        });
-        // scroll.on('scroll', (args) => {
-        //     if (typeof args.currentElements['splash'] === 'object') {
-        //         console.log("The call was fired");
-        //     } else {
-        //         console.log("Somewhere else");
-        //     }
-        // });
+        const wrappers = document.getElementsByClassName("jrg-wrapper-main");
+        const scrollEvent = res => {
+            let wrapper = (res && res.currentTarget) ?
+                res.currentTarget :
+                wrappers.item(0);
+            const top = wrapper.scrollTop;
+            let areas = wrapper.getElementsByClassName("scroll-area");
+            for(let i = 0; i < areas.length; i++){
+                const item = areas.item(i);
+                const bottom = item.offsetTop + item.offsetHeight;
+                const cl = item.classList;
+                (top >= item.offsetTop && top < bottom) ?
+                    cl.add("selected") :
+                    cl.remove("selected");
+            }
+        }
+        for(let i = 0; i <= length; i++) {
+            const item = wrappers.item(i);
+            item.addEventListener("wheel", scrollEvent);
+            item.addEventListener("scroll", scrollEvent);
+        }
+        // scrollEvent();
     </script>
 </body>
 </html>

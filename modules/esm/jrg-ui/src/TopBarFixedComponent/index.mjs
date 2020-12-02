@@ -7,6 +7,9 @@ export class TopBarFixed extends ShadowElement{
         super(template, style);
         this.render();
     }
+    toggleMenu(){
+        this.menu = !!this.menu;
+    }
     postRender(){
         const sty = document.createElement("style");
         sty.innerHTML = style;
