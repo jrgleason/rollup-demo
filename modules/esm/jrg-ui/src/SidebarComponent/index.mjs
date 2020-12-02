@@ -28,6 +28,7 @@ export class SidebarComponent extends ShadowElement {
             this.pages = config.pages;
             this.render();
         });
+        this.classList.add(".scroll-item");
     }
 
     onClick(){

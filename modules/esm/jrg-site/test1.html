@@ -14,8 +14,8 @@
                 background-color: #bb0000;
             }
             #wrapper{
-                /*height:calc( 100% - 64px );*/
-                height: 100%;
+                height:calc( 100% - 64px );
+                /*height: 100%;*/
                 width:100%;
                 overflow: auto;
             }
@@ -26,31 +26,33 @@
         </style>
     </head>
     <body>
-<!--        <div id="header"></div>-->
+        <div id="header"></div>
         <div id="wrapper">
             <div id="test1"
                  class="scroll-item">Simple Test 1</div>
             <div id="test2"
                  class="scroll-item">Simple Test 2</div>
+            <div id="test3"
+                 class="scroll-item">Simple Test 3</div>
         </div>
         <script type="module">
             const body = document.querySelector("#wrapper");
             const inView = function(item){
-                return (!(item.getBoundingClientRect().top < 0 ||
+                // TODO: 64 is header height but I don't want this hardcoded
+                return (!(item.getBoundingClientRect().top <= (-1 * item.getBoundingClientRect().height + 64) ||
                     item.getBoundingClientRect().bottom > window.innerHeight));
             }
             const handleScrollV2 = function(){
                 const items = body.getElementsByClassName("scroll-item");
                 for(let i = 0; i < items.length; i++){
                     const item = items[i];
-                    if(inView(item)){
-                        item.classList.add("selected");
-                    } else{
+                    inView(item) ?
+                        item.classList.add("selected"):
                         item.classList.remove("selected");
-                    }
                 }
             }
             body.addEventListener("wheel",handleScrollV2);
+            handleScrollV2();
         </script>
     </body>
 </html>

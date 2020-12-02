@@ -6,6 +6,7 @@ export class SplashComponent extends ShadowElement {
     constructor() {
         super(template);
         this.render();
+        this.classList.add(".scroll-item");
     }
     postRender(){
         const sty = document.createElement("style");

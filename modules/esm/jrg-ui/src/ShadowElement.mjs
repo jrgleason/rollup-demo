@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css"
 import mustache from "mustache";
 import style from "./SplashComponent/style.css";
 
@@ -9,8 +8,37 @@ export class ShadowElement extends HTMLElement{
         this.template = template;
         this.style = style;
         this.attachShadow({mode});
-        this.initialized = true
-        this.style.display="none"
+        this.initialized = true;
+        this.style.display="none";
+        this.intersectionObserver = new IntersectionObserver(
+            this.intoView.bind(this),
+            {
+                root: this.parentElement,
+                threshold: 0.98
+            }
+        );
+        this.intersectionObserver.observe(this);
+    }
+    intoView(entries) {
+        const scrollItems = document
+            .querySelectorAll(".scroll-item");
+        entries.filter(
+            entry=>entry.isIntersecting
+        ).forEach((entry) => {
+            this.addSelected(entry, scrollItems);
+        });
+    }
+    addSelected(entry, scrollItems) {
+        entry.target.classList.add("selected");
+        this.removeSelected(scrollItems, entry);
+    }
+    removeSelected(items, entry) {
+        items.forEach(
+            item =>{
+                if(item !== entry.target)
+                    item.classList.remove("selected");
+            }
+        );
     }
     render(){
         if(!this.initialized) return; // TODO: Rethink for now just ignore changes until init
@@ -27,9 +55,5 @@ export class ShadowElement extends HTMLElement{
     }
     initialize(){
         this.style.display="initial"
-    }
-    inView(){
-        return (!(this.getBoundingClientRect().top < 0 ||
-            this.getBoundingClientRect().bottom > window.innerHeight));
     }
 }
