@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <style>
+        html, body{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        #header{
+            height:64px;
+            width: 100%;
+            background-color: #bb0000;
+        }
+        #wrapper{
+            /*height:calc( 100% - 64px );*/
+            height: 100%;
+            width:100%;
+            overflow: auto;
+        }
+        .scroll-item{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--        <div id="header"></div>-->
+<div id="wrapper">
+    <div id="test1"
+         class="scroll-item">Simple Test 1</div>
+    <div id="test2"
+         class="scroll-item">Simple Test 2</div>
+    <div id="test3"
+         class="scroll-item">Simple Test 3</div>
+</div>
+<script type="module">
+    const onChange = function(changes) {
+        changes.forEach(change => {
+            change.intersectionRatio <= 0 ?
+                change.target.classList.remove("selected"):
+                change.target.classList.add("selected");
+        });
+    }
+    const intersectionObservers = [];
+    const body = document.querySelector("#wrapper");
+    const scrollItems = body
+        .querySelectorAll(".scroll-item");
+    scrollItems.forEach(item=>{
+        const intersectionObserver = new IntersectionObserver(onChange, {
+            root: body,
+            rootMargin: "-20px"
+        });
+        intersectionObserver.observe(item);
+        intersectionObservers.push(item);
+    })
+</script>
+</body>
+</html>

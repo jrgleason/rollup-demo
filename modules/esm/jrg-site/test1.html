@@ -8,8 +8,14 @@
                 margin: 0;
                 overflow: hidden;
             }
+            #header{
+                height:64px;
+                width:100%;
+                background-color: #bb0000;
+            }
             #wrapper{
-                height:calc( 100% - 64px );
+                /*height:calc( 100% - 64px );*/
+                height: 100%;
                 width:100%;
                 overflow: auto;
             }
@@ -20,6 +26,7 @@
         </style>
     </head>
     <body>
+<!--        <div id="header"></div>-->
         <div id="wrapper">
             <div id="test1"
                  class="scroll-item">Simple Test 1</div>
@@ -28,20 +35,22 @@
         </div>
         <script type="module">
             const body = document.querySelector("#wrapper");
-            const handleScroll = function(info){
-                const top = body.scrollTop;
+            const inView = function(item){
+                return (!(item.getBoundingClientRect().top < 0 ||
+                    item.getBoundingClientRect().bottom > window.innerHeight));
+            }
+            const handleScrollV2 = function(){
                 const items = body.getElementsByClassName("scroll-item");
                 for(let i = 0; i < items.length; i++){
                     const item = items[i];
-                    const bottom = item.offsetTop + item.offsetHeight;
-                    if(top >= item.offsetTop && top < bottom) {
+                    if(inView(item)){
                         item.classList.add("selected");
                     } else{
                         item.classList.remove("selected");
                     }
                 }
             }
-            body.addEventListener("wheel",handleScroll);
+            body.addEventListener("wheel",handleScrollV2);
         </script>
     </body>
 </html>

@@ -28,4 +28,8 @@ export class ShadowElement extends HTMLElement{
     initialize(){
         this.style.display="initial"
     }
+    inView(){
+        return (!(this.getBoundingClientRect().top < 0 ||
+            this.getBoundingClientRect().bottom > window.innerHeight));
+    }
 }
